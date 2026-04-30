@@ -1,45 +1,42 @@
 package model;
+import java.util.ArrayList;
 
 public class Venda {
 
     private Cliente cliente;
-    private Produto produto;
-    private int quantidade;
-    private float valorTotal;
+    private ArrayList<ItemVenda> itens = new ArrayList<>(); //cria array para armazenar os produtos
 
-    public Venda(Cliente cliente, Produto produto, int quantidade) {
+    public Venda(Cliente cliente){
         this.cliente = cliente;
-        this.produto = produto;
-        this.quantidade = quantidade;
-        this.valorTotal = produto.getPreco() * quantidade;
     }
 
-    private void realizarVenda() {
+    public void adicionarItem(Produto produto, int quantidade){
 
-        boolean conseguiuBaixar = produto.baixarEstoque(quantidade);
+        boolean conseguiu = produto.baixarEstoque(quantidade);
 
-        if(conseguiuBaixar){
-            this.valorTotal = produto.getPreco() * quantidade;
-        }else{
-            System.out.println("Venda não realizada por falta de estoque.");
-            this.valorTotal = 0;
+        if (conseguiu){
+            ItemVenda item = new ItemVenda(produto, quantidade);
+            itens.add(item);
+        } else {
+            System.out.println("Sem estoque para o item: " + produto.getNome());
         }
     }
 
-    public float getValorTotal() {
-        return valorTotal;
+    public float getValorTotal(){
+        float total = 0;
+
+        for (ItemVenda item : itens){
+            total += item.getSubtotal();
+        }
+
+        return total;
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public ArrayList<ItemVenda> getItens() {
+        return itens;
     }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
 }

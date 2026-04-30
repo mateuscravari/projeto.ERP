@@ -7,7 +7,7 @@ public class App {
 
         Estoque estoque = new Estoque();  //declara a variavel "estoque"
 
-        estoque.adicionarProduto(new Produto("Poltrona", 589.25f, 30));
+        estoque.adicionarProduto(new Produto("Poltrona", 589.25f, 40));
         estoque.adicionarProduto(new Produto("Cadeira", 289.25f, 50));
         estoque.adicionarProduto(new Produto("Mesa", 1850.79f, 15));
 
@@ -17,15 +17,15 @@ public class App {
         Produto produtoParaVenda1 = estoque.buscarProdutoPorNome("Cadeira");
         Produto produtoParaVenda2 = estoque.buscarProdutoPorNome("Mesa");
 
-        VendaService service = new VendaService();
-        Venda venda = service.realizarVenda(novoCliente, produtoParaVenda, 25); //venda a ser realizada
+        Venda venda = new Venda(novoCliente);
 
-        if (venda != null) {
-            System.out.println("\nNome do cliente: " + novoCliente.getNome());
-            System.out.println("Produto: " + produtoParaVenda.getNome());
-            System.out.println("Quantidade: " + venda.getQuantidade());
-            System.out.println("Valor total da venda: R$ " + venda.getValorTotal() + "\n");
-        }
+        venda.adicionarItem(produtoParaVenda, 10);
+        venda.adicionarItem(produtoParaVenda1, 5);
+        venda.adicionarItem(produtoParaVenda2, 15);
+
+        System.out.println("\nCliente: " + venda.getCliente().getNome());
+        System.out.println("Valor total da venda: R$ " + venda.getValorTotal());
+
         estoque.listarProdutos();
 
     }
