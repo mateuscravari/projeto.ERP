@@ -12,7 +12,7 @@ public class Estoque {
 
     public void listarProdutos(){
         for(int i = 0; i < contador; i++){
-            System.out.println("Quantidade: " + produtos[i].getNome() + " - Estoque: " + produtos[i].getQuantidadeEstoque());
+            System.out.println("Produto: " + produtos[i].getNome() + " - Quantidade estoque: " + produtos[i].getQuantidadeEstoque());
         }
     }
 

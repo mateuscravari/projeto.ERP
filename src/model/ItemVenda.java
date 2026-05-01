@@ -10,7 +10,7 @@ public class ItemVenda {
         this.quantidade = quantidade;
     }
 
-    public float getSubtotal(){
+    public float getSubtotal(){ //calcula o valor total da venda
         return produto.getPreco() * quantidade;
     }
 

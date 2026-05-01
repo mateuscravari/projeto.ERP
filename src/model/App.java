@@ -21,11 +21,15 @@ public class App {
 
         venda.adicionarItem(produtoParaVenda, 10);
         venda.adicionarItem(produtoParaVenda1, 5);
-        venda.adicionarItem(produtoParaVenda2, 15);
+        venda.adicionarItem(produtoParaVenda2, 2);
+        System.out.print(System.lineSeparator());
 
-        System.out.println("\nCliente: " + venda.getCliente().getNome());
-        System.out.println("Valor total da venda: R$ " + venda.getValorTotal());
+        RegistroVendas registro = new RegistroVendas();
+        registro.adicionarVenda(venda);
 
+        registro.listarVendas();
+
+        System.out.print(System.lineSeparator());
         estoque.listarProdutos();
 
     }

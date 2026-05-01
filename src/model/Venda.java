@@ -4,9 +4,10 @@ import java.util.ArrayList;
 public class Venda {
 
     private Cliente cliente;
-    private ArrayList<ItemVenda> itens = new ArrayList<>(); //cria array para armazenar os produtos
+    private ItemVenda[] itens = new ItemVenda[100];
+    private int contadorItens = 0;
 
-    public Venda(Cliente cliente){
+    public Venda (Cliente cliente){
         this.cliente = cliente;
     }
 
@@ -14,29 +15,38 @@ public class Venda {
 
         boolean conseguiu = produto.baixarEstoque(quantidade);
 
-        if (conseguiu){
-            ItemVenda item = new ItemVenda(produto, quantidade);
-            itens.add(item);
+        if(conseguiu){
+            itens[contadorItens] = new ItemVenda(produto, quantidade);
+            contadorItens++;
         } else {
-            System.out.println("Sem estoque para o item: " + produto.getNome());
+            System.out.println("\nNão foi possivel adicionar o item: Estoque insuficiente.");
         }
     }
 
     public float getValorTotal(){
         float total = 0;
 
-        for (ItemVenda item : itens){
-            total += item.getSubtotal();
+        for (int i = 0; i< contadorItens; i++){
+            total += itens[i].getSubtotal();
         }
+       return total;
+    }
 
-        return total;
+    public void listarItensDaVenda(){
+        for (int i = 0; i < contadorItens; i++){
+            System.out.println("Produto: " + itens[i].getProduto().getNome() + " | Quantidade: " + itens[i].getQuantidade() + " | Subtotal: R$ " + itens[i].getSubtotal());
+        }
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    public ArrayList<ItemVenda> getItens() {
+    public ItemVenda[] getItens() {
         return itens;
+    }
+
+    public int getContadorItens() {
+        return contadorItens;
     }
 }
