@@ -1,5 +1,4 @@
 package model;
-import java.util.ArrayList;
 
 public class Venda {
 
@@ -19,7 +18,8 @@ public class Venda {
             itens[contadorItens] = new ItemVenda(produto, quantidade);
             contadorItens++;
         } else {
-            System.out.println("\nEstoque insuficiente: " + produto.getNome() + " - " + produto.getQuantidadeEstoque() + " unidades em estoque");
+            System.out.println("\nESTOQUE INSUFICIENTE: " + produto.getNome() + " - " + produto.getQuantidadeEstoque() + " unidades disponiveis");
+            System.out.println("\n---------------------------------------------------------");
         }
     }
 

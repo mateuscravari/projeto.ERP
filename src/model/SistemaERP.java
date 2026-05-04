@@ -13,7 +13,7 @@ public class SistemaERP {
         Produto produtoEncontrado = estoque.buscarProdutoPorNome(nomeProduto);
         if(produtoEncontrado != null){
             venda.adicionarItem(produtoEncontrado, quantidade);
-            System.out.println("Produto adicionado com sucesso!");
+           // System.out.println("Produto adicionado com sucesso!");
         } else{
             System.out.println("Produto não localizado no estoque.");
         }
