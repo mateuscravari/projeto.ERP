@@ -15,7 +15,7 @@ public class RegistroVendas {
 
             System.out.println("Vendas: " + (i+1));
             System.out.println("Cliente: " + vendas[i].getCliente().getNome());
-            System.out.println("Total: R$" + vendas[i].getValorTotal());
+            System.out.println("Total da venda: R$" + vendas[i].getValorTotal());
             vendas[i].listarItensDaVenda();
         }
     }

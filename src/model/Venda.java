@@ -19,14 +19,14 @@ public class Venda {
             itens[contadorItens] = new ItemVenda(produto, quantidade);
             contadorItens++;
         } else {
-            System.out.println("\nNão foi possivel adicionar o item: Estoque insuficiente.");
+            System.out.println("\nEstoque insuficiente: " + produto.getNome() + " - " + produto.getQuantidadeEstoque() + " unidades em estoque");
         }
     }
 
     public float getValorTotal(){
         float total = 0;
 
-        for (int i = 0; i< contadorItens; i++){
+        for (int i = 0; i < contadorItens; i++){
             total += itens[i].getSubtotal();
         }
        return total;

@@ -9,19 +9,20 @@ public class App {
 
         estoque.adicionarProduto(new Produto("Poltrona", 589.25f, 40));
         estoque.adicionarProduto(new Produto("Cadeira", 289.25f, 50));
-        estoque.adicionarProduto(new Produto("Mesa", 1850.79f, 15));
+        estoque.adicionarProduto(new Produto("Mesa", 3850.79f, 15));
+        estoque.adicionarProduto(new Produto("Banqueta", 350.79f, 15));
+        estoque.adicionarProduto(new Produto("Sofá", 2350.79f, 10));
 
-        estoque.listarProdutos(); //execulta o metedodo e devolve o resultado
-
-        Produto produtoParaVenda = estoque.buscarProdutoPorNome("Poltrona"); //cria variavel produtoParaVenda.
-        Produto produtoParaVenda1 = estoque.buscarProdutoPorNome("Cadeira");
-        Produto produtoParaVenda2 = estoque.buscarProdutoPorNome("Mesa");
+        estoque.listarProdutos(); //execulta o metodo e devolve o resultado
 
         Venda venda = new Venda(novoCliente);
 
-        venda.adicionarItem(produtoParaVenda, 10);
-        venda.adicionarItem(produtoParaVenda1, 5);
-        venda.adicionarItem(produtoParaVenda2, 2);
+        SistemaERP sistema = new SistemaERP(estoque);
+
+        sistema.adicionarItemNaVenda(venda, "Poltrona", 110);
+        sistema.adicionarItemNaVenda(venda, "Cadeira", 555);
+        sistema.adicionarItemNaVenda(venda, "Mesa", 25);
+
         System.out.print(System.lineSeparator());
 
         RegistroVendas registro = new RegistroVendas();
