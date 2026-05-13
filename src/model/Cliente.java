@@ -10,6 +10,7 @@ public class Cliente { // cria cadastro cliente
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
+
     }
 
     public String getNome() {
@@ -23,5 +24,6 @@ public class Cliente { // cria cadastro cliente
     public int getIdade() {
         return idade;
     }
+
 }
 

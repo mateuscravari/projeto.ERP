@@ -16,12 +16,12 @@ public class Estoque {
         }
     }
 
-    public Produto buscarProdutoPorNome(String nome){ //adiciona os produtos dentro do array
+    public Produto buscarProdutoPorNome(String nome){ //busca os produtos dentro do array
         for (int i = 0 ; i < contador; i++){
             if (produtos[i].getNome().equalsIgnoreCase(nome)){
-                return produtos[i];
+                return produtos[i]; //achou
             }
         }
-        return null;
+        return null;  // NÃO achou
     }
 }

@@ -38,6 +38,8 @@ public class Venda {
         }
     }
 
+
+
     public Cliente getCliente() {
         return cliente;
     }
